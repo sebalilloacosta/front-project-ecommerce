@@ -1,0 +1,43 @@
+.gridHeader{
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: 2px solid red;
+}
+
+.logoTienda{
+    border: 2px solid blue;
+    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+    margin: 20px 0px 20px 50px;
+    font-weight: 400;
+    color: #3a3a3a;
+    font-size: 20px;
+}
+.nav-icons {
+    border: 3px solid steelblue;
+    margin-left: 100px;
+}
+
+.shopping-icon {
+    font-size: 2rem;
+}
+
+
+.barraNavegacion{
+    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+    border: 2px solid blue;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.person_search {
+    font-size: 2rem;
+}
+
+//.centrarBarraBusqueda{
+//    margin-top: 20px;
+//    margin-bottom: 20px;
+//    width: 100%;
+// }
+

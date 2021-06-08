@@ -1,0 +1,23 @@
+<header class="gridHeader">
+
+    <div class="logoTienda">
+        <h1>VITRONIK</h1>
+    </div>
+
+    <mat-form-field class="example-form-field">
+        <input matInput type="text" [(ngModel)]="value">
+        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+            <mat-icon>search</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <div class="nav-icons">
+        <mat-icon class="shopping-icon">shopping_cart</mat-icon>
+        <mat-icon class="person_search">person_search</mat-icon>
+    </div>
+</header>
+<!-- <div class="barraNavegacion">
+    Poto
+    ajsndkjansd
+    askldnaksdnas
+</div> -->
