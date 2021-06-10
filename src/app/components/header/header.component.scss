@@ -1,43 +1,78 @@
-.gridHeader{
-    display: grid;
-    width: 100%;
-    grid-template-columns: 1fr 1fr 1fr;
-    border: 2px solid red;
+.gridHeader {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr 1fr;
+  border: 2px solid red;
+  height: 120px;
 }
 
-.logoTienda{
-    border: 2px solid blue;
-    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
-    margin: 20px 0px 20px 50px;
-    font-weight: 400;
-    color: #3a3a3a;
-    font-size: 20px;
+.logoTienda {
+  text-align: center;
+  border: 2px solid blue;
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  display: flex;
+  flex-basis: 33%;
+  justify-content: center;
+  align-items: center;
+  grid-column: 1 / 2;
 }
+
+.logoTienda h1 {
+  margin: 0;
+  padding: 0;
+}
+
+.logoTienda a {
+  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  font-weight: 400;
+  color: #3a3a3a;
+  font-size: 20px;
+}
+
+.logoTienda a:hover {
+  text-decoration: none;
+}
+
+.shortcuts {
+  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+  text-align: center;
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  border: 2px solid green;
+  display: flex;
+  flex-basis: 33%;
+  justify-content: center;
+  align-items: center;
+  grid-column: 2 / 3;
+}
+
+.shortcuts button {
+  display: inline-block;
+  padding: 0 1em;
+  border: 0;
+  font-weight: 400;
+  color: #3a3a3a;
+  font-size: 16px;
+}
+
+.shortcuts button:hover {
+  text-decoration: underline;
+}
+
 .nav-icons {
-    border: 3px solid steelblue;
-    margin-left: 100px;
+  text-align: center;
+  border: 2px solid steelblue;
+  margin: 20px 0px 20px 0px;
+  width: 100%;
+  display: flex;
+  flex-basis: 33%;
+  justify-content: center;
+  align-items: center;
+  grid-column: 3 / 4;
 }
 
-.shopping-icon {
-    font-size: 2rem;
+.icon {
+  margin-right: 1rem;
+  font-size: 2rem;
 }
-
-
-.barraNavegacion{
-    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
-    border: 2px solid blue;
-    font-size: 15px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-}
-
-.person_search {
-    font-size: 2rem;
-}
-
-//.centrarBarraBusqueda{
-//    margin-top: 20px;
-//    margin-bottom: 20px;
-//    width: 100%;
-// }
-

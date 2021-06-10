@@ -1,23 +1,31 @@
 <header class="gridHeader">
 
     <div class="logoTienda">
-        <h1>VITRONIK</h1>
+        <h1><a href="/">VITRONIK</a></h1>
     </div>
 
-    <mat-form-field class="example-form-field">
+    <nav class="shortcuts">
+        <button mat-button>Home</button>
+        <button mat-button>Productos Destacados</button>
+        <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item>Categoria 1</button>
+            <button mat-menu-item>Categoria 2</button>
+        </mat-menu>
+    </nav>
+
+    <div class="nav-icons">
+        <mat-icon class="icon">person</mat-icon>
+        <mat-icon class="icon">shopping_cart</mat-icon>
+    </div>
+
+
+</header>
+
+<!-- BARRA DE BÚSQUEDA -->
+<!-- <mat-form-field class="example-form-field">
         <input matInput type="text" [(ngModel)]="value">
         <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
             <mat-icon>search</mat-icon>
         </button>
-    </mat-form-field>
-
-    <div class="nav-icons">
-        <mat-icon class="shopping-icon">shopping_cart</mat-icon>
-        <mat-icon class="person_search">person_search</mat-icon>
-    </div>
-</header>
-<!-- <div class="barraNavegacion">
-    Poto
-    ajsndkjansd
-    askldnaksdnas
-</div> -->
+    </mat-form-field> -->
