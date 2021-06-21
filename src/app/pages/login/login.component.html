@@ -1,1 +1,33 @@
-<p>login works!</p>
+<div style="margin:1rem 0 0 0;" class="d-flex justify-content-center align-items-center">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">INICIAR SESIÓN</p>
+    
+        <div class="inputGroup">
+
+            <!-- EMAIL -->
+            <input type="email" formControlName="inputEmail" id="loginFormEmail" class="form-control mb-4" placeholder="E-mail">
+        
+            <!-- CONTRASEÑA -->
+            <input type="password" formControlName="inputPassword" id="loginFormPassword" class="form-control mb-4" placeholder="Contraseña">
+
+            <p>{{ service.errorMssge }}</p>
+        </div>
+
+        <!-- CATPCHA -->
+        <div class="mb-4 g-recaptcha d-flex justify-content-center align-items-center" data-sitekey="6LcQuykbAAAAAD-oT0Pr5TJ3aiVFBDfXRWeP9gTt"></div>
+        
+        <!-- RECORDAR CONTRASEÑA -->
+        <small class="form-text text-muted mb-4">
+            <a class="rememberPass" href="/login#">¿Olvidaste tu contraseña?</a>
+        </small>
+
+        <!-- BOTON INICIAR SESION -->
+        <button type="submit" block="true" class="btn btn-dark mb-4">Ingresar</button>
+
+        <!-- CREAR CUENTA -->
+        <small class="form-text text-muted mb-4">
+            <a class="registerAccount" href="/register">Crear cuenta</a>
+        </small>
+    </form>    
+</div>

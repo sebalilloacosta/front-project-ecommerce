@@ -1,78 +1,103 @@
-.gridHeader {
-  display: grid;
-  width: 100%;
-  grid-template-columns: 1fr 1fr 1fr;
-  border: 2px solid red;
-  height: 120px;
+mat-toolbar {
+    display: inline-flex;
+    width: 100%;
+    height: 100px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3.5rem;
 }
 
-.logoTienda {
-  text-align: center;
-  border: 2px solid blue;
-  margin: 20px 0px 20px 0px;
-  width: 100%;
-  display: flex;
-  flex-basis: 33%;
-  justify-content: center;
-  align-items: center;
-  grid-column: 1 / 2;
+.logo {
+    flex: 1;
+    text-align: center;
 }
 
-.logoTienda h1 {
-  margin: 0;
-  padding: 0;
+.logo a {
+    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+    font-weight: 400;
+    color: #3a3a3a;
+    font-size: 26px;
+    color: inherit;
+    text-decoration: none;
+    font-weight: inherit;
 }
 
-.logoTienda a {
-  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
-  font-weight: 400;
-  color: #3a3a3a;
-  font-size: 20px;
-}
-
-.logoTienda a:hover {
-  text-decoration: none;
+.logo a:hover {
+    text-decoration: none;
+    opacity: 0.85;
 }
 
 .shortcuts {
-  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
-  text-align: center;
-  margin: 20px 0px 20px 0px;
-  width: 100%;
-  border: 2px solid green;
-  display: flex;
-  flex-basis: 33%;
-  justify-content: center;
-  align-items: center;
-  grid-column: 2 / 3;
+    flex: 1;
+    width: 100%;
+    text-align: center;
 }
 
 .shortcuts button {
-  display: inline-block;
-  padding: 0 1em;
-  border: 0;
-  font-weight: 400;
-  color: #3a3a3a;
-  font-size: 16px;
+    display: inline-block;
+    padding: 0 1em;
+    border: 0;
+    font-size: 15px;
+    font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    font-weight: 400;
+    color: #3a3a3a;
 }
 
 .shortcuts button:hover {
-  text-decoration: underline;
+    text-decoration: underline;
+    text-decoration-color: #3a3a3a;
+    opacity: .8;
+}
+
+.navigation-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .nav-icons {
-  text-align: center;
-  border: 2px solid steelblue;
-  margin: 20px 0px 20px 0px;
-  width: 100%;
-  display: flex;
-  flex-basis: 33%;
-  justify-content: center;
-  align-items: center;
-  grid-column: 3 / 4;
+    flex: 1;
+    text-align: right;
+    margin: auto;
 }
 
-.icon {
-  margin-right: 1rem;
-  font-size: 2rem;
+
+.material-icons {
+    color:#3a3a3a;
+    vertical-align: middle;
+    margin-left: 1.5rem;
+    font-size: 2rem;
+}
+
+.material-icons:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.input-group {
+    margin-top: 1rem;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchButton {
+    border: none;
+    color: #3a3a3a;
+    height: 38px;
+    margin: auto;
+    margin-left: 1rem;
+    width: auto;
+}
+
+.searchButton:hover {
+    opacity: .5;
+}
+
+@media(max-width:959px) {
+    mat-toolbar {
+        border-radius: 0px;
+    }
 }

@@ -1,6 +1,70 @@
 .carousel img {
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    margin:auto;
+}
+
+.categoriesTitle {
+    margin-top: 2rem;
+    text-align: center;
+    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+    font-weight: 400;
+    color: #3a3a3a;
+    font-size: 26px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.categories {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 220px;
+    height: 220px;
+    margin: 2rem 2rem;
+    border:none;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.bg-overlay {
+    position: absolute;
+    text-align: center;
+    width: 220px;
+    height: 220px;
+    background-color: #685858;
+    opacity: 0.35;
+    border: 0;
+}
+
+.card span {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    top: 50%;
+    font-size: 20px;
+    color:white;
 }

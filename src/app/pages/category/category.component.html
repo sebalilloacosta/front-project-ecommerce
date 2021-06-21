@@ -1,0 +1,33 @@
+<div class="categoriesBox">
+  
+  <div fxLayout="row" fxLayoutGap="16px" class="filters" fxLayoutAlign="center" fxLayout.xs="column">
+    <span class="alignFlex">ORDENAR POR</span>&nbsp;
+    <select class="alignFlex form-control custom-select">
+      <option value="" selected>Todos los productos</option>
+      <option>Precio Mayor a Menor</option>
+      <option>Precio Menor a Mayor</option>
+      <option>Calificacion Mayor a Menor</option>
+      <option>Calificacion Menor a Mayor</option>
+    </select>&nbsp;&nbsp;
+    <span class="alignFlex">FILTRAR POR</span>&nbsp;
+    <select class="alignFlex form-control custom-select">
+      <option value="" selected>Marca</option>
+      <option>Razer</option>
+      <option>Logitech</option>
+      <option>Redragon</option>
+    </select>
+  </div>
+  
+  <div class="productsBox">
+    <div *ngFor="let product of products">
+      <div class="card">
+        <a (click)="getProductId(product.product_id)">
+          <img class="card-img-top" src={{product.url_image}}>
+          <h2 class="productTitle">{{ product.title }}</h2>
+          <h2 class="productPrice">${{ product.price }}</h2>
+        </a>
+      </div>
+    </div>
+  </div>
+  
+</div>

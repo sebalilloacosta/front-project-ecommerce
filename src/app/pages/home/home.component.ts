@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Category } from '../../interfaces/Category';
+import { CategoriesService } from '../../services/categories/categories.service';
 
 @Component({
   selector: 'app-home',
@@ -7,11 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+  categories:Category[] = [];
 
-  constructor() { }
+  constructor(public service:CategoriesService, private router: Router) { 
+  }
 
   ngOnInit(): void {
   }
-
+  
+  getCategoryId(id:string, name:string) {
+    this.service.category_id = id;
+    this.router.navigate([`/category/${id}`]).then(() => {
+      window.location.reload();
+    });
+  }
 }

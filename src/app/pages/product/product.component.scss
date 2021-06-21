@@ -1,0 +1,96 @@
+.flex-container {
+    margin-bottom: 1rem;
+}
+
+.flex-item {
+    margin-top: 2rem;
+}
+
+.flex-item h3 {
+    text-align: center;
+    font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    color: #3a3a3a;
+}
+
+.photos {
+    text-align: center;
+}
+
+.productPhoto {
+    max-width: 540px;
+    max-height: 540px;
+}
+
+.extraInfo {
+    text-align: center;
+}
+
+.p-2 h1 h2 p {
+    font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    color: #3a3a3a;
+}
+
+.p-2 button {
+    border-radius: 0;
+}
+
+.p-2 p {
+    font-size: 15px;
+    text-align: left;
+}
+
+
+.commentBox {
+    margin:auto;
+    text-align: right;
+}
+
+.commentBox button {
+    margin-top: 1rem;
+}
+
+.input-icons mat-icon {
+    position: absolute;
+}
+  
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.icon {
+    padding: 10px;
+    min-width: 40px;
+    
+}
+  
+.input-field {
+    width: 100%;
+    padding: 0.8rem;
+}
+
+select {
+    text-indent: 1.5rem;
+}
+
+option span {
+    font-size: 22px;
+}
+
+.comment {
+    padding: 4px;
+    border:2px solid;
+    border-color:  rgb(207, 207, 207);
+}
+
+.commentName {
+    display:block;
+    justify-content: center;
+    align-content: center;
+    margin: 0;
+    min-width: 40px;
+}
+
+.commentName span {
+    vertical-align: middle;
+}

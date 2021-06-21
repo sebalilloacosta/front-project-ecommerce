@@ -1,29 +1,50 @@
-<ngb-carousel *ngIf="images">
+<!-- CAROUSEL -->
+<ngb-carousel style="margin-top: 2rem;">
     <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[0]" alt="Random first slide">
+      <div class="picsum-img-wrapper" style="min-height: 50px; max-height: 480px; overflow: hidden;">
+        <img src="https://cdn.shopify.com/s/files/1/0045/4534/7684/files/Sin-titulo-2.jpg?v=1623197678" alt="Random first slide" data-sizes="auto">
       </div>
       <div class="carousel-caption">
-        <h3>Etiqueta primera imagen</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h3>Lo mejor en periféricos</h3>
+        <p>Encuentra gran variedad en perifericos de la marca RAZER</p>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[1]" alt="Random second slide">
+      <div class="picsum-img-wrapper" style="min-height: 50px; max-height: 480px; overflow: hidden;">
+        <img src="https://spartangeek.com/blog/content/images/2018/12/computadoras-de-escritorio-gamers.jpg" alt="Random second slide" data-sizes="auto">
       </div>
       <div class="carousel-caption">
-        <h3>Etiqueta segunda imagen</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <h3>Componentes</h3>
+        <p>Todo lo que necesitas para armar tu equipo de sobremesa</p>
       </div>
     </ng-template>
     <ng-template ngbSlide>
-      <div class="picsum-img-wrapper">
-        <img [src]="images[2]" alt="Random third slide">
+      <div class="picsum-img-wrapper" style="min-height: 50px; max-height: 480px; overflow: hidden;">
+        <img src="https://www.hwsw.hu/kepek/hirek/2021/04/logit.jpg?1619700127441" alt="Random third slide" data-sizes="auto">
       </div>
       <div class="carousel-caption">
-        <h3>Etiqueta tercera imagen</h3>
-        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+        <h3>Videojuegos</h3>
+        <p>Aqui puedes encontrar gran variedad en todas las consolas que necesites</p>
       </div>
     </ng-template>
   </ngb-carousel>
+  
+  <!-- CATEGORIES -->
+  <div class="categoriesTitle">
+    <h2>CATEGORIAS</h2>
+  </div>
+  
+  <div class="categories">
+    <div *ngFor = "let category of this.service.categories">
+      <div class="card">
+        <a (click)="getCategoryId(category.category_id, category.name)">
+          <div class="bg-overlay"></div>
+          <span>{{ category.name.toUpperCase() }}</span>
+          <img class="card-img-top" src="{{ category.url_image }}">
+          <div class="card-overlay"><span>{{ category.name.toUpperCase() }}</span></div>
+        </a>
+      </div>
+    </div>
+  
+  </div>
+  

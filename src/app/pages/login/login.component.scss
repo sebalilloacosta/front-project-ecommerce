@@ -1,0 +1,27 @@
+.inputGroup input {
+    max-width: 491px;
+}
+
+.rememberPass {
+    font-size: 12px;
+    color: #3a3a3a;
+}
+
+.rememberPass:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.registerAccount {
+    font-size: 16px;
+    color: #3a3a3a;
+}
+
+.registerAccount:hover {
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.inputGroup p {
+    color: red;
+}

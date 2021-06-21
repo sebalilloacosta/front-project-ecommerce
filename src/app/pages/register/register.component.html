@@ -1,1 +1,59 @@
-<p>register works!</p>
+<div style="margin:1rem 0 0 0;" class="d-flex justify-content-center align-items-center">
+  <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+      <p class="h4 mb-4">REGISTRARSE</p>
+
+      <div class="inputGroup">
+
+        <!-- NOMBRES -->
+        <input type="text" formControlName="inputFirstname" id="registerFormFirstName" class="form-control mb-3" placeholder="Nombres" required>
+
+        <!-- APELLIDOS -->
+        <input type="text" formControlName="inputLastname" id="registerFormLastName" class="form-control mb-3" placeholder="Apellidos" required>
+
+        <!-- RUT -->
+        <input type="text" formControlName="inputIdcard" id="registerFormRut" class="form-control mb-3" placeholder="R.U.T" required>
+
+        <!-- DIRECCION -->
+        <input type="text" formControlName="inputAddress" id="registerFormAdress" class="form-control mb-3" placeholder="Dirección de residencia" required>
+
+        <!-- REGION Y COMUNA -->
+        <div class="form-row mb-3">
+            <div class="col">
+              <!-- REGION -->
+              <select formControlName="inputRegion" class="form-control custom-select" (change)="cambiarRegion($event)" required>
+                <option value="" selected>Región</option>
+                <option *ngFor="let region of regiones" [value]='region.nombreRegion'>{{region.nombreRegion}}</option>
+              </select>
+            </div>
+
+            <div class="col">
+              <!-- COMUNA -->
+              <select formControlName="inputCommune" class="form-control custom-select" required>
+                <option value="" selected>Comuna</option>
+                <option *ngFor="let comuna of comunas" [value]='comuna'>{{comuna}}</option>
+              </select>
+            </div>
+        </div>
+
+        <!-- EMAIL -->
+        <input type="email" formControlName="inputEmail" id="registerFormEmail" class="form-control mb-3" placeholder="E-mail" required>
+
+        <!-- CONTRASEÑA -->
+        <input type="password" formControlName="inputPassword" id="registerFormPassword" class="form-control mb-3" placeholder="Contraseña" required>
+
+        <!-- CONFIRMAR CONTRASEÑA -->
+        <input type="password" formControlName="inputConfirmPassword" id="registerFormConfirmPassword" class="form-control mb-3" placeholder="Confirmar Contraseña" required>
+        <p class="errorMessage">{{inputError}}</p>
+        <p class="errorMessage">{{confirmPwError}}</p>
+
+      </div>
+
+      <!-- CATPCHA -->
+      <div class="g-recaptcha d-flex justify-content-center align-items-center" data-sitekey="6LcQuykbAAAAAD-oT0Pr5TJ3aiVFBDfXRWeP9gTt" required></div>
+
+      <!-- BOTON REGISTRARSE -->
+      <button type="submit" block="true" class="btn btn-dark my-4">Registrarse</button>
+  
+  </form>    
+</div>

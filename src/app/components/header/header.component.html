@@ -1,31 +1,71 @@
-<header class="gridHeader">
-
-    <div class="logoTienda">
-        <h1><a href="/">VITRONIK</a></h1>
+<mat-toolbar color="transparent">
+    <!-- MENU RESPONSIVE -->
+    <div fxLayout="row" fxLayoutGap="35px">
+        <div fxFlex="35" fxHide.gt-xs fxLayoutAlign="center center">
+            <button mat-icon-button (click)="onToggleSideNav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+    
+        <div class="logo" fxFlex="30" fxHide.gt-xs fxLayoutAlign="center center">
+            <h2><a href="/home">TIENDA</a></h2>
+        </div>
+    
+        <div fxFlex="35" fxHide.gt-xs fxLayoutAlign="center center">
+            <a href="/login" id="resIconUser"><span class="material-icons">person</span></a>
+            <a id="resLoggedUser" [matMenuTriggerFor]="userMenu"><span class="material-icons">person</span></a>
+            <mat-menu #userMenu="matMenu" xPosition="before">
+                <a><button mat-menu-item>Editar Perfil</button></a>
+                <a><button (click)="cerrarSesion()" mat-menu-item>Cerrar Sesion</button></a>
+            </mat-menu>
+            <a href="/cart"> <span class="material-icons">shopping_cart</span></a>
+        </div>
     </div>
 
-    <nav class="shortcuts">
-        <button mat-button>Home</button>
-        <button mat-button>Productos Destacados</button>
-        <button mat-button [matMenuTriggerFor]="menu">Categorias</button>
-        <mat-menu #menu="matMenu">
-            <button mat-menu-item>Categoria 1</button>
-            <button mat-menu-item>Categoria 2</button>
-        </mat-menu>
+    <!-- CONTAINER LOGO -->
+    <div class="logo" fxHide.xs>
+        <h2><a href="/">TIENDA</a></h2>
+    </div>
+
+    <!-- CONTAINER NAV -->
+    <nav class="shortcuts" fxFlex fxLayout fxLayoutAlign="center center" fxHide.xs>
+        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+            <li>
+                <a href="/"><button mat-button style="background-color: transparent;">Home</button></a>
+            </li>
+            <li>
+                <a href="/featured"><button mat-button style="background-color: transparent;">Productos Destacados</button></a>
+            </li>
+            <li>
+                <button mat-button [matMenuTriggerFor]="menu" style="background-color: transparent;">Categorias</button>
+                <mat-menu #menu="matMenu">
+                    <div *ngFor = "let category of categories">
+                        <a (click)="getCategoryId(category.category_id, category.name)"><button mat-menu-item>{{ category.name}}</button></a>
+                    </div>
+                </mat-menu>
+            </li>
+        </ul>
     </nav>
 
-    <div class="nav-icons">
-        <mat-icon class="icon">person</mat-icon>
-        <mat-icon class="icon">shopping_cart</mat-icon>
+    <!-- CONTAINER ICONS-->
+    <div class="nav-icons" fxHide.xs>
+        <a href="/login" id="iconUser"><span class="material-icons">person</span></a>
+        <a id="loggedUser" [matMenuTriggerFor]="userMenu"><span class="material-icons">person</span></a>
+        <mat-menu #userMenu="matMenu" xPosition="before">
+            <a><button mat-menu-item>Editar Perfil</button></a>
+            <a ><button (click)="cerrarSesion()" mat-menu-item>Cerrar Sesion</button></a>
+        </mat-menu>
+        
+        <a href="/cart"> <span class="material-icons">shopping_cart</span></a>
     </div>
+</mat-toolbar>
 
-
-</header>
-
-<!-- BARRA DE BÚSQUEDA -->
-<!-- <mat-form-field class="example-form-field">
-        <input matInput type="text" [(ngModel)]="value">
-        <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+<!-- SEARCH BAR -->
+<div class="d-flex justify-content-center align-items-center">
+    <div class="input-group">
+        <input type="text" placeholder="Buscar producto" class="form-control">
+        <button mat-icon-button class="searchButton">
             <mat-icon>search</mat-icon>
         </button>
-    </mat-form-field> -->
+    </div>
+</div>
