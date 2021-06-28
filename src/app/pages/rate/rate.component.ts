@@ -13,7 +13,7 @@ export class RateComponent implements OnInit {
 
   product_id:string = "";
   order_id:string = "";
-  inputRate:string = "";
+  inputRate:number = 0;
   inputComment:string = "";
   formulario:FormGroup;
 
@@ -48,11 +48,11 @@ export class RateComponent implements OnInit {
   onSubmit() {
     let token = localStorage.getItem('accessToken');
     let rate:Rate = {
-      score: this.formulario.controls['inputRate'].value,
+      score: Number(this.formulario.controls['inputRate'].value),
       comment:this.formulario.controls['inputComment'].value
     }
+    console.log(typeof rate.score);
     if (token) {
-      console.log(rate);
       if (rate.score != 0) {
         this.service.rateProduct(this.product_id, this.order_id, token, rate);
       }

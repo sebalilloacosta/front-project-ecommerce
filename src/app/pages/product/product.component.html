@@ -37,14 +37,20 @@
         <h3>COMENTARIOS</h3>
         <div *ngFor="let comment of comments">
             <!-- CONTAINER COMENTARIO -->
-            <div class="p-2 comment" style="margin: 1rem 0">
-                <div class="commentName">
-                    {{comment.firstname}} {{comment.lastname}}
-                    <span style="float: right;">{{comment.score}}/5<mat-icon class="icon">star</mat-icon></span>
-                </div>
-                <hr style="margin-top:1rem; border-bottom: 1px solid #dddddd;">
-                <p>{{comment.comment}}</p>
-            </div>
+            <mat-list class="comment" style="margin:1rem 0" role="list">
+                <mat-list-item role="listitem" style="border-bottom: 1px solid #dddddd;">
+                    <div fxFlex="90" fxLayout fxLayoutAlign="start center">
+                        <span inline=true>{{comment.firstname}} {{comment.lastname}}</span>
+                    </div>
+                    <div fxLayout fxLayoutAlign="end center">
+                        <span inline=true>{{comment.score}}/5 </span>
+                        <mat-icon inline=true mat-list-icon>star</mat-icon>
+                    </div>
+                </mat-list-item>
+                <mat-list-item style="margin-top: 1rem">
+                    <p>{{comment.comment}}</p>
+                </mat-list-item>
+            </mat-list>
         </div>
     </div>
 </div>
