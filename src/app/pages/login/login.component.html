@@ -1,33 +1,27 @@
-<div style="margin:1rem 0 0 0;" class="d-flex justify-content-center align-items-center">
+<div style="background-color:white; padding:1.5rem 0 0 0;" class="d-flex justify-content-center align-items-center">
     <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
 
         <p class="h4 mb-4">INICIAR SESIÓN</p>
     
         <div class="inputGroup">
-
             <!-- EMAIL -->
-            <input type="email" formControlName="inputEmail" id="loginFormEmail" class="form-control mb-4" placeholder="E-mail">
+            <input type="email" formControlName="inputEmail" id="loginFormEmail" class="form-control mb-4" placeholder="E-mail" required>
         
             <!-- CONTRASEÑA -->
-            <input type="password" formControlName="inputPassword" id="loginFormPassword" class="form-control mb-4" placeholder="Contraseña">
-
-            <p>{{ service.errorMssge }}</p>
+            <input type="password" formControlName="inputPassword" id="loginFormPassword" class="form-control mb-4" placeholder="Contraseña" required>
         </div>
 
         <!-- CATPCHA -->
-        <div class="mb-4 g-recaptcha d-flex justify-content-center align-items-center" data-sitekey="6LcQuykbAAAAAD-oT0Pr5TJ3aiVFBDfXRWeP9gTt"></div>
-        
-        <!-- RECORDAR CONTRASEÑA -->
-        <small class="form-text text-muted mb-4">
-            <a class="rememberPass" href="/login#">¿Olvidaste tu contraseña?</a>
-        </small>
+        <div class="mb-4">
+            <re-captcha (resolved)="resolved($event)" formControlName="inputRecaptcha" siteKey="6LfhFFIbAAAAAJoxXPtKRlhWEK3rvkcEF6gsVe35"></re-captcha>
+        </div>
 
         <!-- BOTON INICIAR SESION -->
         <button type="submit" block="true" class="btn btn-dark mb-4">Ingresar</button>
 
         <!-- CREAR CUENTA -->
         <small class="form-text text-muted mb-4">
-            <a class="registerAccount" href="/register">Crear cuenta</a>
+            <a class="registerAccount" (click)="toRegister()">Crear cuenta</a>
         </small>
     </form>    
 </div>

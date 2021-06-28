@@ -1,0 +1,35 @@
+<div style="background-color:white; padding:1.5rem 0 0 0;" fxLayout="column">
+    <p fxLayout fxLayoutAlign="center center" class="h4 mb-4">MIS PEDIDOS</p>
+    <div *ngFor="let order of ordersMap | keyvalue">
+        <div class="text-center border border-light p-5" fxLayout="column">
+            <p class="h4 mb-4">ORDEN ID: {{order.key}}</p>
+            <div *ngFor="let product of order.value">
+                <!-- CONTAINER PRODUCTOS DE ORDEN -->
+                <div style="background-color:white; padding:1.5rem 0 0 0;" fxLayout="column" fxLayoutGap="16px">
+                    <div fxLayout="row" fxLayoutGap="10px">
+                        <!-- IMAGEN PRODUCTO -->
+                        <div class="alignFlex photoProduct" fxFlex="15" fxHide.xs>
+                            <img src={{product.url_image}}>
+                        </div>
+                        <!-- NOMBRE PRODUCTO -->
+                        <div class="alignFlex nameProduct" fxFlex="30" fxFlex.xs="50">
+                            <span>{{product.title}}</span>
+                        </div>
+                        <div class="alignFlex" fxFlex="10">
+                            <span>{{product.quantity}}</span>
+                        </div>
+    
+                        <!-- BOTON CALIFICAR PRODUCTO -->
+                        <div class="alignFlex" *ngIf="product.rated === false">
+                            <button (click)="commentBox(product.product_id, product.order_id)" block="true" class="btn btn-dark">Calificar</button>
+                        </div>
+                    </div>
+                </div>
+                <div style="background-color:white; padding:1.5rem 0 0 0;" fxLayout="column" fxLayoutGap="16px">
+                        <span>Total: ${{product.orders_total_price}}</span>
+                </div>
+                <hr style="background-color:white; margin: 1.5rem 0.2rem; border-bottom: 1px solid #dddddd;">
+            </div>
+        </div>
+    </div>
+</div>

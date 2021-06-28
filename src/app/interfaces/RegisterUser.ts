@@ -6,5 +6,6 @@ export interface RegisterUser {
     idcard:string,
     residence_address:string,
     region:string,
-    commune:string
+    commune:string,
+    recaptcha:string
 }

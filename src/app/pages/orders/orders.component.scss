@@ -1,0 +1,28 @@
+.h4 {
+    font-size: 20px;
+    text-align: left;
+}
+
+.alignFlex {
+    text-align: center;
+    align-self: center;
+}
+
+.photoProduct {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.photoProduct img {
+    width: 95px;
+    height: 95px;
+}
+
+.nameProduct {
+    text-align: left !important;
+}
+
+.nameProduct a:hover{
+    cursor: pointer;
+}

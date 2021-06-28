@@ -1,0 +1,39 @@
+.flex-container {
+    margin-top: 2rem;
+}
+
+.commentBox {
+    margin:auto;
+    text-align: right;
+}
+
+.commentBox button {
+    margin-top: 1rem;
+}
+
+.input-icons mat-icon {
+    position: absolute;
+}
+  
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+  
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+  
+.input-field {
+    width: 100%;
+    padding: 0.8rem;
+}
+
+select {
+    text-indent: 1.5rem;
+}
+
+option span {
+    font-size: 22px;
+}

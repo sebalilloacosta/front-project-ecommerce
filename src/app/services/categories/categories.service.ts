@@ -10,6 +10,7 @@ export class CategoriesService {
 
   servidor = 'https://ecommerce-api-develop.herokuapp.com';
   products:Product[] = [];
+  search_products:Product[] = [];
   categories:Category[] = [];
   category_id:string = "";
   name:string = "";
@@ -30,7 +31,6 @@ export class CategoriesService {
             }
             this.categories.push(category);
           }
-          console.log("Categorias cargadas con exito");
         },
         (err) => console.log(err)
       );
@@ -55,12 +55,34 @@ export class CategoriesService {
             }
             this.products.push(product);
           }
-          console.log("Productos cargados con exito");
         },
         (err) => console.log(err)
       );
     }
   }
 
+  searchProducts(search_string:string) {
+    if (this.search_products.length === 0) {
+      this.http.get(`${this.servidor}/api/products/by-filter/${search_string}`).subscribe(
+        (resp:any) => {
+          for (let i = 0; i < resp['products'].length; i++) {
+            let product:Product = {
+              product_id: resp['products'][i]['product_id'],
+              category_id: resp['products'][i]['category_id'],
+              brand_id: resp['products'][i]['brand_id'],
+              title: resp['products'][i]['title'],
+              price: resp['products'][i]['price'],
+              stock: resp['products'][i]['stock'],
+              description: resp['products'][i]['description'],
+              url_image: resp['products'][i]['url_image'],
+              average_score: resp['products'][i]['average_score']
+            }
+            this.search_products.push(product);
+          }
+        },
+        (err) => console.log(err)
+      );
+    }
+  }
   
 }

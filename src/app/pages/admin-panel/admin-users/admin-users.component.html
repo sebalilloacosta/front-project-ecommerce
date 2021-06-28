@@ -1,0 +1,32 @@
+<div style="text-align: center; margin-top: 2rem">
+    <button (click)="toAdminPanel()" block="true" class="btn btn-dark mb-4">Volver al Panel</button>
+</div>
+
+<div style="background-color:white; padding:1.5rem 0 0 0;">
+    <p class="text-center h4 mb-4">REPORTE DE USUARIOS</p>
+    <div fxLayout fxLayoutAlign="center center" style="overflow-x: auto;">
+        <table style="margin-bottom: 2rem">
+            <tr>
+                <th>User ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>RUT</th>
+                <th>Email</th>
+                <th>Direccion</th>
+                <th>Region</th>
+                <th>Comuna</th>
+              </tr>
+            <tr *ngFor="let user of users">
+                <td>{{user.user_id}}</td>
+                <td>{{user.firstname}}</td>
+                <td>{{user.lastname}}</td>
+                <td>{{user.id_card}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.residence_address}}</td>
+                <td>{{user.region}}</td>
+                <td>{{user.commune}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+

@@ -1,0 +1,55 @@
+.flex-container {
+    margin-bottom: 1rem;
+}
+
+.flex-item {
+    margin-top: 2rem;
+}
+
+.border {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.border-light {
+    border-top: none !important;
+    border-bottom: none !important;
+}
+
+.inputGroup input {
+    max-width: 491px;
+}
+
+.inputGroup button {
+    float: right;
+}
+
+.h4 {
+    text-align: left;
+}
+
+.productTitle {
+    margin: 0;
+    padding: 0;
+}
+
+.productTitle > div > p {
+    text-align: left;
+}
+
+.finalInfo {
+    position: relative;
+    float: right;
+    margin-right: 11%;
+    background-color:white;
+}
+
+.subTotal {
+    text-align: right;
+}
+
+.subTotal p {
+    font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    color: #3a3a3a;
+    font-size: 17px;
+}

@@ -1,1 +1,65 @@
-<p>profile works!</p>
+<div style="background-color:white; padding:1.5rem 0 0 0;" class="d-flex justify-content-center align-items-center">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+  
+        <p class="h4 mb-4">EDITAR PERFIL</p>
+  
+        <div class="inputGroup">
+  
+          <!-- NOMBRES -->
+          <input type="text"class="form-control mb-3" placeholder={{this.service.profileUser.firstname}} readonly>
+  
+          <!-- APELLIDOS -->
+          <input type="text"class="form-control mb-3" placeholder={{this.service.profileUser.lastname}} readonly>
+  
+          <!-- RUT -->
+          <input type="text"class="form-control mb-3" placeholder={{this.service.profileUser.idcard}} readonly>
+          
+          <!-- EMAIL -->
+          <input type="email" class="form-control mb-3" placeholder={{this.service.profileUser.email}} readonly>
+
+          <!-- DIRECCION PREVIA-->
+          <input type="text" class="form-control mb-3" placeholder={{this.service.profileUser.residence_address}} readonly>
+  
+          <!-- REGION Y COMUNA PREVIAS -->
+          <div class="form-row mb-3">
+            <div class="col">
+              <!-- REGION PREVIA-->
+              <input type="text" class="form-control mb-3" placeholder={{this.service.profileUser.region}} readonly>
+            </div>
+
+            <div class="col">
+              <!-- COMUNA PREVIA-->
+              <input type="text" class="form-control mb-3" placeholder={{this.service.profileUser.commune}} readonly>
+            </div>
+          </div>
+
+
+          <!-- INPUT NUEVA DIRECCION -->
+          <input type="text" formControlName="inputAddress" id="profileFormAdress" class="form-control mb-3" placeholder="Nueva direccion" required>
+
+          <!-- INPUTS NUEVAS REGION Y COMUNA -->
+          <div class="form-row mb-3">
+              <div class="col">
+                <!-- REGION -->
+                <select formControlName="inputRegion" class="form-control custom-select" (change)="cambiarRegion($event)" required>
+                  <option value="" selected>Seleccionar nueva region</option>
+                  <option *ngFor="let region of regiones" [value]='region.nombreRegion'>{{region.nombreRegion}}</option>
+                </select>
+              </div>
+    
+              <div class="col">
+                <!-- COMUNA -->
+                <select formControlName="inputCommune" class="form-control custom-select" required>
+                  <option value="" selected>Seleccionar nueva comuna</option>
+                  <option *ngFor="let comuna of comunas" [value]='comuna'>{{comuna}}</option>
+                </select>
+              </div>
+          </div>
+          
+        </div>
+  
+        <!-- BOTON GUARDAR -->
+        <button type="submit" block="true" class="btn btn-dark my-4">Guardar</button>
+    
+    </form>    
+  </div>

@@ -24,12 +24,14 @@ export class SidenavListComponent implements OnInit {
     this.sidenavClose.emit();
   }
 
-  getCategoryId(id:string, name:string) {
+  getCategoryId(id:string) {
     this.service.category_id = id;
-    this.router.navigate([`/category/${id}`]).then(() => {
-      window.location.reload();
-    });
-    // name.split(' ').join('-').toLowerCase()
+    this.service.products = [];
+    this.router.navigate([`/category/${id}`]);
+  }
+
+  toHome() {
+    this.router.navigate([`/home`]);
   }
 
 }

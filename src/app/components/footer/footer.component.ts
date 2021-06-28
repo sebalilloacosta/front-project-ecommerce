@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProfileUser } from '../../interfaces/ProfileUser';
+import { UsersService } from '../../services/users/users.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  userData:ProfileUser = {
+    firstname: "",
+    lastname: "",
+    email: "",
+    idcard: "",
+    residence_address: "",
+    region: "",
+    commune: ""
+  }
+
+  constructor(public service:UsersService) { }
 
   ngOnInit(): void {
+    let token = localStorage.getItem('accessToken')
+    if (token) {
+      this.service.getUserData(token);
+      this.userData = this.service.profileUser;
+    }
   }
 
 }

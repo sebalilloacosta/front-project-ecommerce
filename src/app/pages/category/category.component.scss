@@ -1,5 +1,6 @@
 .categoriesBox {
-    margin-top: 2rem;
+    padding-top: 2rem;
+    background-color:white;
 }
 
 .filters {
@@ -31,6 +32,12 @@
     height: 430px;
     margin: 0 1.5rem 2rem;
     border:none;
+    background-color: white;
+}
+
+.card-img-top {
+    width:250px;
+    height:237px;
 }
 
 .card a {

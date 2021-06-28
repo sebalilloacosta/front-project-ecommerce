@@ -1,4 +1,4 @@
-<div style="margin:1rem 0 0 0;" class="d-flex justify-content-center align-items-center">
+<div style="background-color:white; padding:1.5rem 0 0 0;" class="d-flex justify-content-center align-items-center">
   <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
 
       <p class="h4 mb-4">REGISTRARSE</p>
@@ -44,13 +44,13 @@
 
         <!-- CONFIRMAR CONTRASEÑA -->
         <input type="password" formControlName="inputConfirmPassword" id="registerFormConfirmPassword" class="form-control mb-3" placeholder="Confirmar Contraseña" required>
-        <p class="errorMessage">{{inputError}}</p>
-        <p class="errorMessage">{{confirmPwError}}</p>
 
       </div>
 
       <!-- CATPCHA -->
-      <div class="g-recaptcha d-flex justify-content-center align-items-center" data-sitekey="6LcQuykbAAAAAD-oT0Pr5TJ3aiVFBDfXRWeP9gTt" required></div>
+      <div class="mb-4" fxLayout fxLayoutAlign="center center">
+        <re-captcha (resolved)="resolved($event)" formControlName="inputRecaptcha" siteKey="6LfhFFIbAAAAAJoxXPtKRlhWEK3rvkcEF6gsVe35"></re-captcha>
+      </div>
 
       <!-- BOTON REGISTRARSE -->
       <button type="submit" block="true" class="btn btn-dark my-4">Registrarse</button>

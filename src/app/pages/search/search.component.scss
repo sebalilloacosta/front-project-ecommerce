@@ -1,0 +1,69 @@
+.searchBox {
+    padding-top: 2rem;
+    background-color:white;
+}
+
+.filters {
+    text-align: left;
+    justify-content: center;
+    align-items: center;
+}
+
+.alignFlex {
+    text-align: center;
+    align-self: center;
+}
+
+.filters select{
+    width: auto;
+}
+
+.productsBox {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.card {
+    width: 250px;
+    height: 430px;
+    margin: 0 1.5rem 2rem;
+    border:none;
+    background-color: white;
+}
+
+.card-img-top {
+    width:250px;
+    height:237px;
+}
+
+.card a {
+    font-family: Helvetica, 'Helvetica Neue', Arial, 'Lucida Grande', sans-serif;
+    font-weight: 400;
+    color: #3a3a3a;
+    color: inherit;
+    text-decoration: none;
+}
+
+.productTitle {
+    text-align: center;
+    height: 130px;
+}
+
+.productPrice {
+    text-align: center;
+    height: 30px;
+}
+
+.card:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.productTitle:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}

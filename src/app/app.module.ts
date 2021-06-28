@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 import { HomeComponent } from './pages/home/home.component';
 import { SearchComponent } from './pages/search/search.component';
@@ -20,7 +21,6 @@ import { AdminPanelComponent } from './pages/admin-panel/admin-panel.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SidenavListComponent } from './components/sidenav-list/sidenav-list.component';
-import { FeaturedComponent } from './pages/featured/featured.component';
 import { CategoryComponent } from './pages/category/category.component';
 
 import { MatIconModule } from '@angular/material/icon';
@@ -33,6 +33,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
+import { OrdersComponent } from './pages/orders/orders.component';
+import { RateComponent } from './pages/rate/rate.component';
+import { AdminUsersComponent } from './pages/admin-panel/admin-users/admin-users.component';
+import { AdminOrdersComponent } from './pages/admin-panel/admin-orders/admin-orders.component';
+import { AdminLoginComponent } from './pages/admin-panel/admin-login/admin-login.component';
 
 
 @NgModule({
@@ -50,8 +55,12 @@ import { MatCardModule } from '@angular/material/card';
     HeaderComponent,
     FooterComponent,
     SidenavListComponent,
-    FeaturedComponent,
-    CategoryComponent
+    CategoryComponent,
+    OrdersComponent,
+    RateComponent,
+    AdminUsersComponent,
+    AdminOrdersComponent,
+    AdminLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -71,6 +80,8 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatListModule,
     MatCardModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

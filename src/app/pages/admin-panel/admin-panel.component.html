@@ -1,1 +1,10 @@
-<p>admin-panel works!</p>
+<div>
+    <div fxFlex=50 fxFlexOffset=25 fxLayoutAlign="center" style="background-color:white; padding:1.5rem 0 0 0; margin-top:2rem;" class="text-center border border-light p-5">
+        <div fxLayout="column" fxLayoutAlign="center center">
+            <p class="h4 mb-4">PANEL DE ADMINISTRACION</p>
+            <button (click)="ordersReport()" block="true" class="btn btn-dark mb-4">Reporte de Pedidos</button>
+            <button (click)="usersReport()" block="true" class="btn btn-dark mb-4">Reporte de Usuarios</button>
+            <button (click)="logOutAdmin()" block="true" class="btn btn-danger mb-4">Salir del panel</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,28 @@
+<div style="background-color:white; padding:1.5rem 0 0 0;" class="d-flex justify-content-center align-items-center">
+    <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+
+        <p class="h4 mb-4">PANEL DE ADMINISTRACION</p>
+    
+        <div class="inputGroup">
+            <!-- EMAIL -->
+            <input type="email" formControlName="inputEmail" id="loginFormEmail" class="form-control mb-4" placeholder="E-mail" required>
+        
+            <!-- CONTRASEÑA -->
+            <input type="password" formControlName="inputPassword" id="loginFormPassword" class="form-control mb-4" placeholder="Contraseña" required>
+        </div>
+
+        <!-- CATPCHA -->
+        <div class="mb-4">
+            <re-captcha (resolved)="resolved($event)" formControlName="inputRecaptcha" siteKey="6LfhFFIbAAAAAJoxXPtKRlhWEK3rvkcEF6gsVe35"></re-captcha>
+        </div>
+
+        <!-- BOTON INICIAR SESION -->
+        <button type="submit" block="true" class="btn btn-dark mb-4">Ingresar</button>
+
+        <!-- CREAR CUENTA -->
+        <small class="form-text text-muted mb-4">
+            <a class="registerAccount" (click)="toHome()">Volver al inicio</a>
+        </small>
+    </form>    
+</div>
+

@@ -1,7 +1,12 @@
 mat-sidenav-cotainer, mat-sidenav-content, mat-sidenav {
     height: 100%;
+    background-color: white;
 }
 
 mat-sidenav {
     width: 250px;
+}
+
+main {
+    margin-bottom: 110px;
 }

@@ -1,21 +1,41 @@
 <div class="categoriesBox">
   
   <div fxLayout="row" fxLayoutGap="16px" class="filters" fxLayoutAlign="center" fxLayout.xs="column">
-    <span class="alignFlex">ORDENAR POR</span>&nbsp;
-    <select class="alignFlex form-control custom-select">
-      <option value="" selected>Todos los productos</option>
-      <option>Precio Mayor a Menor</option>
-      <option>Precio Menor a Mayor</option>
-      <option>Calificacion Mayor a Menor</option>
-      <option>Calificacion Menor a Mayor</option>
-    </select>&nbsp;&nbsp;
-    <span class="alignFlex">FILTRAR POR</span>&nbsp;
-    <select class="alignFlex form-control custom-select">
-      <option value="" selected>Marca</option>
-      <option>Razer</option>
-      <option>Logitech</option>
-      <option>Redragon</option>
-    </select>
+    <form [formGroup]="filtersForm" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+      <mat-list role="list">
+        <mat-list-item>
+          <div fxLayout fxLayoutAlign="center center">
+            <!-- ORDENAMIENTO POR PRECIO O CALIFICACION -->
+            <span inline="true">ORDENAR POR</span>&nbsp;
+            <select inline="true" formControlName="ordenarPor" class="form-control custom-select">
+              <option value="" selected>Todos los productos</option>
+              <option value="price_mayor">Precio Mayor a Menor</option>
+              <option value="price_menor">Precio Menor a Mayor</option>
+              <option value="rate_mayor">Calificacion Mayor a Menor</option>
+              <option value="rate_menor">Calificacion Menor a Mayor</option>
+            </select>&nbsp;&nbsp;
+          </div>
+
+          <!-- FILTRO POR MARCA -->
+          <span inline="true">FILTRAR POR</span>&nbsp;
+          <select inline="true" formControlName="marca" class="form-control custom-select">
+            <option value="" selected>Marca</option>
+            <option value="0faf4e4c-0c4d-4d9a-ab5f-a576d7135dbf">Razer</option>
+            <option value="f9eb8da2-c522-4d31-b530-50c1d86e7382">Logitech</option>
+            <option value="43788f03-92c4-452e-adef-56fbf1d79a1b">Redragon</option>
+            <option value="8f504bf0-04e3-4bea-b905-65b47b132d1d">HyperX</option>
+            <option value="3c97ff55-cc4b-4869-b65f-1a6c1d8f87cd">Cougar</option>
+            <option value="4cfb9eb3-b31d-4250-8c02-2f6e228bcc1e">Trust</option>
+            <option value="76e130f4-8e02-42e7-afec-fb8c5d9b5c61">Maono</option>
+            <option value="20666b26-3831-4748-85f3-f3b43df36e29">Meetion</option>
+            <option value="4e3ec9a6-0a47-412e-b0b3-16813267f758">HP</option>
+          </select>&nbsp;&nbsp;
+
+          <!-- BOTON FILTRAR -->
+          <button inline="true" type="submit" block="true" class="btn btn-dark">Filtrar</button>
+        </mat-list-item>
+      </mat-list>
+    </form>
   </div>
   
   <div class="productsBox">

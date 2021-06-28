@@ -15,13 +15,13 @@
                 <div class="p-2"><h2>${{product.price}}</h2></div>
                 <!-- CALIFICACION PROMEDIO -->
                 <div class="p-2"><h2>Calificacion: {{product.average_score}}/5<mat-icon class="icon">star</mat-icon></h2></div>
-                <!-- AGREGAR AL CARRITO -->
-                <div class="p-2">
-                    <button type="submit" block="true" class="btn btn-block btn-lg btn-dark">Agregar al carrito</button>
+                <!-- BOTON AGREGAR AL CARRITO -->
+                <div *ngIf="product.stock != '0'" class="p-2">
+                    <button type="submit" (click)="addToCart(product.product_id, product.stock)" block="true" class="btn btn-block btn-lg btn-dark">Agregar al carrito</button>
                 </div>
-                <!-- COMPRAR AHORA -->
-                <div class="p-2">
-                    <button type="submit" block="true" class="btn btn-block btn-lg btn-secondary mb-4">Comprar ahora</button>
+                <!-- BOTON PRODUCTO NO DISPONIBLE -->
+                <div *ngIf="product.stock == '0'" class="p-2">
+                    <button block="true" class="btn btn-block btn-lg btn-dark" disabled>Producto no Disponible</button>
                 </div>
                 <!-- DESCRIPCION DEL PRODUCTO -->
                 <div class="p-2">
@@ -32,41 +32,19 @@
     </div>
 </div>
 
-<!-- CONTAINER CALIFICAR PRODUCTO -->
 <div class="flex-container" fxLayout="row" fxLayout.xs="column">
-    <div class="flex-item" fxFlex=40 fxFlexOffset=30 fxFlex.sm=60 fxFlexOffset.sm=20>
-        <h3>CALIFICA Y COMENTA ESTE PRODUCTO</h3>
-        <div class="p-2 commentBox">
-            <!-- CONTAINER CALIFICACION -->
-            <div class="input-icons">
-                <mat-icon class="icon">star</mat-icon>
-                <select class="input-field" id="rate">
-                    <option value="1star"><span>1</span></option>
-                    <option value="2stars"><span>2</span></option>
-                    <option value="3stars"><span>3</span></option>
-                    <option value="4stars"><span>4</span></option>
-                    <option value="5stars"><span>5</span></option>
-                </select>
-            </div>
-            <!-- CONTAINER COMENTARIO -->
-            <textarea class="form-control" id="formControlTextarea3" rows="3">Deja tu comentario...</textarea>
-            <!-- BOTON ENVIAR -->
-            <button type="submit" block="true" class="btn btn-primary">Enviar</button>
-        </div>
-    </div>
-</div>
-
-<div class="flex-container" fxLayout="row" fxLayout.xs="column">
-    <div class="flex-item" fxFlex=60 fxFlexOffset=20>
+    <div class="flex-item" fxFlex=40 fxFlexOffset=30>
         <h3>COMENTARIOS</h3>
-        <!-- CONTAINER COMENTARIO -->
-        <div class="p-2 comment">
-            <div class="commentName">
-                Felipe Barja
-                <span style="float: right;">5/5<mat-icon class="icon">star</mat-icon></span>
+        <div *ngFor="let comment of comments">
+            <!-- CONTAINER COMENTARIO -->
+            <div class="p-2 comment" style="margin: 1rem 0">
+                <div class="commentName">
+                    {{comment.firstname}} {{comment.lastname}}
+                    <span style="float: right;">{{comment.score}}/5<mat-icon class="icon">star</mat-icon></span>
+                </div>
+                <hr style="margin-top:1rem; border-bottom: 1px solid #dddddd;">
+                <p>{{comment.comment}}</p>
             </div>
-            <hr style="margin-top:1rem; border-bottom: 1px solid #dddddd;">
-            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
         </div>
     </div>
 </div>

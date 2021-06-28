@@ -1,31 +1,31 @@
 <!-- CAROUSEL -->
-<ngb-carousel style="margin-top: 2rem;">
+<ngb-carousel style="padding-top: 2rem; background-color:white">
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper" style="min-height: 50px; max-height: 480px; overflow: hidden;">
         <img src="https://cdn.shopify.com/s/files/1/0045/4534/7684/files/Sin-titulo-2.jpg?v=1623197678" alt="Random first slide" data-sizes="auto">
       </div>
-      <div class="carousel-caption">
+      <!-- <div class="carousel-caption">
         <h3>Lo mejor en periféricos</h3>
         <p>Encuentra gran variedad en perifericos de la marca RAZER</p>
-      </div>
+      </div> -->
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper" style="min-height: 50px; max-height: 480px; overflow: hidden;">
         <img src="https://spartangeek.com/blog/content/images/2018/12/computadoras-de-escritorio-gamers.jpg" alt="Random second slide" data-sizes="auto">
       </div>
-      <div class="carousel-caption">
+      <!-- <div class="carousel-caption">
         <h3>Componentes</h3>
         <p>Todo lo que necesitas para armar tu equipo de sobremesa</p>
-      </div>
+      </div> -->
     </ng-template>
     <ng-template ngbSlide>
       <div class="picsum-img-wrapper" style="min-height: 50px; max-height: 480px; overflow: hidden;">
         <img src="https://www.hwsw.hu/kepek/hirek/2021/04/logit.jpg?1619700127441" alt="Random third slide" data-sizes="auto">
       </div>
-      <div class="carousel-caption">
+      <!-- <div class="carousel-caption">
         <h3>Videojuegos</h3>
         <p>Aqui puedes encontrar gran variedad en todas las consolas que necesites</p>
-      </div>
+      </div> -->
     </ng-template>
   </ngb-carousel>
   
@@ -37,7 +37,7 @@
   <div class="categories">
     <div *ngFor = "let category of this.service.categories">
       <div class="card">
-        <a (click)="getCategoryId(category.category_id, category.name)">
+        <a (click)="getCategoryId(category.category_id)">
           <div class="bg-overlay"></div>
           <span>{{ category.name.toUpperCase() }}</span>
           <img class="card-img-top" src="{{ category.url_image }}">

@@ -1,1 +1,72 @@
-<p>checkout works!</p>
+<!-- CONTAINER PEDIDO -->
+<div class="flex-container" fxLayout="row" fxLayout.xs="column">
+    <div class="flex-item" fxFlex="40">            
+        <div class="inputGroup text-center border border-light p-5">
+            <p class="h4 mb-4">VERIFICAR DIRECCION</p>
+            <!-- DIRECCION -->
+            <input type="text" class="form-control mb-4" placeholder={{this.serviceUser.profileUser.residence_address}} readonly>
+            <!-- REGION Y COMUNA DEFINIDAS -->
+            <div class="form-row mb-4">
+                <div class="col">
+                <!-- REGION -->
+                <select class="form-control custom-select" readonly>
+                    <option value="" selected>{{this.serviceUser.profileUser.region}}</option>
+                </select>
+                </div>
+                <div class="col">
+                <!-- COMUNA -->
+                <select class="form-control custom-select" readonly>
+                    <option value="" selected>{{this.serviceUser.profileUser.commune}}</option>
+                </select>
+                </div>
+            </div>
+            <!-- BOTON GUARDAR CAMBIO -->
+            <div style="text-align: right;">
+                <button (click)="toProfile()" block="true" class="btn btn-dark mb-4">Cambiar Direccion</button>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <div class="flex-item" fxFlex="60">
+        <div class="p-2 text-center border border-light p-5">
+            <p class="h4">INFORMACION DE PEDIDO</p>
+            <div class="productTitle" fxLayout="row" fxLayoutGap="16px">
+                <div class="" fxFlex="55"> 
+                    <p>PRODUCTO</p>
+                </div>
+                <div fxFlex="25">
+                    <span>CANTIDAD</span>
+                </div>
+                <div fxFlex="30">
+                    <span>SUBTOTAL</span>
+                </div>
+            </div>
+            <div *ngFor="let product of orderProducts">
+                <div style="background-color:white; padding:1.5rem 0 0 0;" fxLayout="column" fxLayoutGap="16px">
+                    <div class="productTitle" fxLayout="row" fxLayoutGap="16px">
+                        <div fxFlex="55">
+                            <p>{{product.title}}</p>
+                        </div>
+
+                        <div fxFlex="25">
+                            <span>{{product.quantity}}</span>
+                        </div>
+                        <div fxFlex="30">
+                            <span>${{product.sub_total}}</span>
+                        </div>
+                    </div>
+                </div>
+                <hr style="background-color:white; margin: 0.5rem 0.2rem; border-bottom: 1px solid #dddddd;">
+            </div>
+        </div>
+
+        <div class="finalInfo">
+            <div class="subTotal">
+                <p>Total &nbsp;&nbsp; ${{this.serviceCart.totalPrice}}</p>
+                <button (click)="newOrder()" block="true" class="btn btn-dark my-2">Realizar Pedido</button>
+            </div>
+        </div>
+    </div>
+</div>

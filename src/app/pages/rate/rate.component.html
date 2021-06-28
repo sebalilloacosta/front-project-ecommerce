@@ -1,0 +1,26 @@
+<!-- CONTAINER CALIFICAR PRODUCTO -->
+<div class="flex-container" fxLayout="row" fxLayout.xs="column">
+        <div class="flex-item" fxFlex=40 fxFlexOffset=30 fxFlex.sm=60 fxFlexOffset.sm=20>
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="text-center border border-light p-5">
+                <p class="h4 mb-4 text-center">CALIFICAR PRODUCTO</p>
+                <div class="p-2 commentBox">
+                    <!-- CONTAINER CALIFICACION -->
+                    <div class="input-icons">
+                        <mat-icon class="icon">star</mat-icon>
+                        <select formControlName="inputRate" class="input-field" id="rate" required>
+                            <option value=0 selected>Calificacion</option>
+                            <option value=1><span>1</span></option>
+                            <option value=2><span>2</span></option>
+                            <option value=3><span>3</span></option>
+                            <option value=4><span>4</span></option>
+                            <option value=5><span>5</span></option>
+                        </select>
+                    </div>
+                    <!-- CONTAINER COMENTARIO -->
+                    <textarea formControlName="inputComment" class="form-control" id="comment" rows="3" placeholder="Deja tu comentario..."></textarea>
+                    <!-- BOTON ENVIAR -->
+                    <button type="submit" block="true" class="btn btn-primary">Enviar</button>
+                </div>
+            </form>
+        </div>
+</div>

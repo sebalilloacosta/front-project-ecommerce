@@ -1,46 +1,50 @@
-<mat-toolbar color="transparent">
+<mat-toolbar>
     <!-- MENU RESPONSIVE -->
-    <div fxLayout="row" fxLayoutGap="35px">
-        <div fxFlex="35" fxHide.gt-xs fxLayoutAlign="center center">
-            <button mat-icon-button (click)="onToggleSideNav()">
-                <mat-icon>menu</mat-icon>
-            </button>
-        </div>
+    <div fxFlex=25  fxLayout fxLayoutAlign="center left" fxHide.gt-xs>
+        <button mat-button (click)="onToggleSideNav()">
+            <mat-icon inline=true>menu</mat-icon>
+        </button>
+    </div>
     
-        <div class="logo" fxFlex="30" fxHide.gt-xs fxLayoutAlign="center center">
-            <h2><a href="/home">TIENDA</a></h2>
-        </div>
+    <div fxFlex=50 fxLayout fxLayoutAlign="center center" class="logoRes" fxHide.gt-xs>
+        <h2><a class="toHome" (click)="toHome()">TIENDA</a></h2>
+    </div>
     
-        <div fxFlex="35" fxHide.gt-xs fxLayoutAlign="center center">
-            <a href="/login" id="resIconUser"><span class="material-icons">person</span></a>
-            <a id="resLoggedUser" [matMenuTriggerFor]="userMenu"><span class="material-icons">person</span></a>
-            <mat-menu #userMenu="matMenu" xPosition="before">
-                <a><button mat-menu-item>Editar Perfil</button></a>
-                <a><button (click)="cerrarSesion()" mat-menu-item>Cerrar Sesion</button></a>
+    <div fxFlex=25 fxLayout fxLayoutAlign="right center" class="nav-icons-res" fxHide.gt-xs>
+        <div *ngIf="token == 'null'">
+            <button id="resIconUser" mat-button [matMenuTriggerFor]="resUser"><mat-icon inline=true>person</mat-icon></button>
+            <mat-menu #resUser="matMenu" xPosition="before">
+                <button (click)="toRegister()" mat-menu-item>Registrarse</button>
+                <button (click)="toLogin()" mat-menu-item>Iniciar Sesion</button>
             </mat-menu>
-            <a href="/cart"> <span class="material-icons">shopping_cart</span></a>
         </div>
+        <div *ngIf="token != 'null'">
+            <button id="resLoggedUser" mat-button [matMenuTriggerFor]="resUserMenu"><mat-icon inline=true>person</mat-icon></button>
+            <mat-menu #resUserMenu="matMenu" xPosition="before">
+                <button (click)="toProfile()" mat-menu-item>Editar Perfil</button>
+                <button (click)="toOrders()" mat-menu-item>Mis Pedidos</button>
+                <button (click)="cerrarSesion()" mat-menu-item>Cerrar Sesion</button>
+            </mat-menu>
+        </div>
+        <button (click)="toCart()" class="resCart" mat-button><mat-icon inline=true>shopping_cart</mat-icon></button>
     </div>
 
     <!-- CONTAINER LOGO -->
-    <div class="logo" fxHide.xs>
-        <h2><a href="/">TIENDA</a></h2>
+    <div fxFlex=20 fxLayout fxLayoutAlign="center center" class="logo" fxHide.xs>
+        <h2><a class="toHome" (click)="toHome()">TIENDA</a></h2>
     </div>
 
     <!-- CONTAINER NAV -->
-    <nav class="shortcuts" fxFlex fxLayout fxLayoutAlign="center center" fxHide.xs>
-        <ul fxLayout fxLayoutGap="15px" class="navigation-items">
+    <nav fxFlex=60 fxLayout fxLayoutAlign="center center" class="shortcuts" fxFlex fxLayout fxLayoutAlign="center center" fxHide.xs>
+        <ul fxLayout fxLayoutGap="40px" class="navigation-items">
             <li>
-                <a href="/"><button mat-button style="background-color: transparent;">Home</button></a>
-            </li>
-            <li>
-                <a href="/featured"><button mat-button style="background-color: transparent;">Productos Destacados</button></a>
+                <button (click)="toHome()" mat-button>Home</button>
             </li>
             <li>
                 <button mat-button [matMenuTriggerFor]="menu" style="background-color: transparent;">Categorias</button>
-                <mat-menu #menu="matMenu">
+                <mat-menu #menu="matMenu" xPosition="before">
                     <div *ngFor = "let category of categories">
-                        <a (click)="getCategoryId(category.category_id, category.name)"><button mat-menu-item>{{ category.name}}</button></a>
+                        <button (click)="getCategoryId(category.category_id)" mat-menu-item>{{ category.name}}</button>
                     </div>
                 </mat-menu>
             </li>
@@ -48,24 +52,38 @@
     </nav>
 
     <!-- CONTAINER ICONS-->
-    <div class="nav-icons" fxHide.xs>
-        <a href="/login" id="iconUser"><span class="material-icons">person</span></a>
-        <a id="loggedUser" [matMenuTriggerFor]="userMenu"><span class="material-icons">person</span></a>
-        <mat-menu #userMenu="matMenu" xPosition="before">
-            <a><button mat-menu-item>Editar Perfil</button></a>
-            <a ><button (click)="cerrarSesion()" mat-menu-item>Cerrar Sesion</button></a>
-        </mat-menu>
-        
-        <a href="/cart"> <span class="material-icons">shopping_cart</span></a>
+    <div fxFlex=20 fxLayout fxLayoutAlign="center center" class="nav-icons" fxHide.xs>
+        <div *ngIf="token == 'null'">
+            <button id="iconUser" mat-button [matMenuTriggerFor]="user"><mat-icon inline=true>person</mat-icon></button>
+            <mat-menu #user="matMenu" xPosition="before">
+                <button (click)="toRegister()" mat-menu-item>Registrarse</button>
+                <button (click)="toLogin()" mat-menu-item>Iniciar Sesion</button>
+            </mat-menu>
+        </div>
+        <div *ngIf="token != 'null'">
+            <button id="loggedUser" mat-button [matMenuTriggerFor]="userMenu"><mat-icon inline=true>person</mat-icon></button>
+            <mat-menu #userMenu="matMenu" xPosition="before">
+                <button (click)="toProfile()" mat-menu-item>Editar Perfil</button>
+                <button (click)="toOrders()" mat-menu-item>Mis Pedidos</button>
+                <button (click)="cerrarSesion()" mat-menu-item>Cerrar Sesion</button>
+            </mat-menu>
+        </div>
+        <button (click)="toCart()" class="resCart" mat-button><mat-icon inline=true>shopping_cart</mat-icon></button>
     </div>
 </mat-toolbar>
 
 <!-- SEARCH BAR -->
-<div class="d-flex justify-content-center align-items-center">
-    <div class="input-group">
-        <input type="text" placeholder="Buscar producto" class="form-control">
-        <button mat-icon-button class="searchButton">
-            <mat-icon>search</mat-icon>
-        </button>
-    </div>
+<div style="background-color:white"  class="d-flex justify-content-center align-items-center">
+    <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" fxFlex=70 fxFlexOffset=15 fxFlex.xs=100 fxFlexOffset.xs=0>
+        <mat-list role="list">
+            <mat-list-item>
+                <div fxLayout fxLayoutAlign="center center" fxFlex=80 fxFlex.xs=100>
+                    <input fxLayout fxLayoutAlign="center center" inline="true" formControlName="inputSearch" type="text" placeholder="Buscar producto" class="form-control">
+                    <button fxLayout fxLayoutAlign="center center" inline="true" type="submit" mat-icon-button class="searchButton">
+                        <mat-icon fxLayout fxLayoutAlign="center center" inline="true">search</mat-icon>
+                    </button>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </form>
 </div>

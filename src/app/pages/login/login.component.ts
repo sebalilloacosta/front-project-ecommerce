@@ -13,28 +13,55 @@ export class LoginComponent implements OnInit {
 
   inputEmail:string = "";
   inputPassword:string = "";
+  inputRecaptcha:string = "";
   formulario:FormGroup;
+
 
   constructor(public fb:FormBuilder, public service:UsersService, private router: Router) { 
     this.formulario = fb.group({
       inputEmail:new FormControl(''),
-      inputPassword:new FormControl('')
+      inputPassword:new FormControl(''),
+      inputRecaptcha: new FormControl('')
     });
   }
 
   ngOnInit(): void {
     let token = localStorage.getItem('accessToken');
     if (token){
-      window.location.href="/home";
+      this.router.navigate([`/home`]);
     }
   }
 
+  resolved(captchaResponse: string) {
+    console.log(`Resolved response token: ${captchaResponse}`);
+  }
+
   onSubmit() {
+    let errorEmail:boolean = false;
+    let errorPw:boolean = false;
     let loginUser:LoginUser = {
       email:this.formulario.controls['inputEmail'].value,
       password:this.formulario.controls['inputPassword'].value,
+      recaptcha:this.formulario.controls['inputRecaptcha'].value
+    }
+    if (loginUser.email != "") {
+      errorEmail = true;
+    }
+    
+    if(loginUser.password != "") {
+      errorPw = true;
     }
 
-    this.service.logUser(loginUser);
+    if(errorEmail == true && errorPw == true) {
+      this.service.logUser(loginUser);
+    }
+    else{
+      alert("Datos de inicio de sesion incorrectos");
+      console.log("Credenciales invalidas");
+    }
+  }
+
+  toRegister() {
+    this.router.navigate([`/register`]);
   }
 }

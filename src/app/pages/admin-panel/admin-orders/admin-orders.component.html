@@ -1,0 +1,35 @@
+<div style="text-align: center; margin-top: 2rem">
+    <button (click)="toAdminPanel()" block="true" class="btn btn-dark mb-4">Volver al Panel</button>
+</div>
+
+<div style="background-color:white; padding:1.5rem 0 0 0;">
+    <p class="text-center h4 mb-4">REPORTE DE PEDIDOS</p>
+    <div fxLayout fxLayoutAlign="center center" style="overflow-x: auto;">
+        <table style="margin-bottom: 2rem">
+            <tr>
+                <th>Order ID</th>
+                <th>User ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Email</th>
+                <th>Product ID</th>
+                <th>Producto</th>
+                <th>Cantidad</th>
+                <th>Precio Total</th>
+                <th>Fecha</th>
+            </tr>
+            <tr *ngFor="let order of orders">
+                <td>{{order.order_id}}</td>
+                <td>{{order.user_id}}</td>
+                <td>{{order.firstname}}</td>
+                <td>{{order.lastname}}</td>
+                <td>{{order.email}}</td>
+                <td>{{order.product_id}}</td>
+                <td>{{order.title}}</td>
+                <td>{{order.quantity}}</td>
+                <td>{{order.total_price}}</td>
+                <td>{{order.create_at}}</td>
+            </tr>
+        </table>
+    </div>
+</div>

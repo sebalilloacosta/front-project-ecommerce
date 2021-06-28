@@ -9,5 +9,6 @@ export interface CartProduct {
     stock:number,
     description:string,
     url_image:string,
-    average_score:string
+    average_score:string,
+    sub_total:number
 }

@@ -39,7 +39,6 @@
     text-align: left;
 }
 
-
 .commentBox {
     margin:auto;
     text-align: right;
@@ -61,7 +60,6 @@
 .icon {
     padding: 10px;
     min-width: 40px;
-    
 }
   
 .input-field {
@@ -93,4 +91,8 @@ option span {
 
 .commentName span {
     vertical-align: middle;
+}
+
+.errorMssge {
+    color: red;
 }

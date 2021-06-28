@@ -4,6 +4,7 @@ import { CategoriesService } from '../../services/categories/categories.service'
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../interfaces/Product';
 import { ProductsService } from '../../services/products/products.service';
+import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-category',
@@ -13,12 +14,24 @@ import { ProductsService } from '../../services/products/products.service';
 export class CategoryComponent implements OnInit {
 
   products:Product[] = [];
+  filteredProducts:Product[] = [];
+  filtersForm:FormGroup;
 
-  constructor(public serviceProduct:ProductsService, public service:CategoriesService, private router: Router, private ActiveRoute:ActivatedRoute) { }
-
+  constructor(
+    public fb:FormBuilder, 
+    public serviceProduct:ProductsService, 
+    public service:CategoriesService, 
+    private router: Router, 
+    private ActiveRoute:ActivatedRoute) {
+      this.filtersForm = fb.group({
+        ordenarPor:new FormControl(''),
+        marca:new FormControl('')
+      });
+     }
+  
   ngOnInit(): void {
-    this.products = this.service.products;
     this.ActiveRoute.paramMap.subscribe( (paramMap:any) =>{
+      this.products = this.service.products;
       const {params} = paramMap;
       this.service.getProducts(params['category_id']);
     });
@@ -26,10 +39,67 @@ export class CategoryComponent implements OnInit {
 
   getProductId(id:string) {
     this.serviceProduct.product_id = id;
-    console.log('product id category: ',this.serviceProduct.product_id);
-    this.router.navigate([`/products/${id}`]).then(() => {
-      window.location.reload();
-    });
+    this.service.products = [];
+    this.router.navigate([`/products/${id}`]);
+  }
+
+  onSubmit() {
+    this.products = this.service.products;
+    this.filteredProducts = [];
+    let orderFilter = this.filtersForm.controls['ordenarPor'].value;
+    let brandFilter = this.filtersForm.controls['marca'].value;
+
+    if (brandFilter == "" && orderFilter == "") {
+      this.filteredProducts = this.service.products;
+    }
+    else if (brandFilter != "" && orderFilter != "") {
+      // FILTRO POR MARCA
+      for (let i = 0; i < this.products.length; i++) {
+        if(brandFilter == this.products[i].brand_id) {
+          this.filteredProducts.push(this.products[i])
+          // ORDENAMIENTO POR PRECIO
+          if(orderFilter == "price_menor") {
+            this.filteredProducts.sort((a:any, b:any) => a.price - b.price);
+          }
+          else if (orderFilter == "price_mayor") {
+            this.filteredProducts.sort((a:any, b:any) => b.price - a.price);
+          }
+          // ORDENAMIENTO POR CALIFICACION
+          else if (orderFilter == "rate_menor"){
+            this.filteredProducts.sort((a:any, b:any) => a.average_score - b.average_score);
+          }
+          else if (orderFilter == "rate_mayor"){
+            this.filteredProducts.sort((a:any, b:any) => b.average_score - a.average_score);
+          }
+        }
+      }
+    }
+    else if (brandFilter != "" && orderFilter == ""){
+      // FILTRO POR MARCA
+      for (let i = 0; i < this.products.length; i++) {
+        if(brandFilter == this.products[i].brand_id) {
+          this.filteredProducts.push(this.products[i])
+        }
+      }
+    }
+    else if (brandFilter == "" && orderFilter != "") {
+      this.filteredProducts = this.service.products;
+      // ORDENAMIENTO POR PRECIO
+      if(orderFilter == "price_menor") {
+        this.filteredProducts.sort((a:any, b:any) => a.price - b.price);
+      }
+      else if (orderFilter == "price_mayor") {
+        this.filteredProducts.sort((a:any, b:any) => b.price - a.price);
+      }
+      // ORDENAMIENTO POR CALIFICACION
+      else if (orderFilter == "rate_menor"){
+        this.filteredProducts.sort((a:any, b:any) => a.average_score - b.average_score);
+      }
+      else if (orderFilter == "rate_mayor"){
+        this.filteredProducts.sort((a:any, b:any) => b.average_score - a.average_score);
+      }
+    }
+    this.products = this.filteredProducts;
   }
 
 }

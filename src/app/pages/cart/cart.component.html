@@ -1,1 +1,60 @@
-<p>cart works!</p>
+<!-- CONTAINER PRODUCTOS -->
+<div style="background-color:white; padding:1.5rem 0 0 0;" fxLayout="column" fxLayoutGap="16px">
+    <!-- HEADER CARRITO -->
+    <div style="margin-top:2rem;" fxLayout="row" fxLayoutGap="16px">
+        <div fxFlex="5">
+        </div>
+        <div class="alignFlex" fxFlex="15" fxFlex.xs="50"> 
+            <h3>PRODUCTO</h3>
+        </div>
+        <div fxFlex="30" fxHide.xs>
+
+        </div>
+        <div class="alignFlex" fxFlex="15" fxHide.xs>
+            <h3>PRECIO</h3>
+        </div>
+        <div class="alignFlex" fxFlex="15" fxFlex.xs="20">
+            <h3>CANTIDAD</h3>
+        </div>
+        <div class="alignFlex" fxFlex="15" fxFlex.xs="20">
+            <h3>TOTAL</h3>
+        </div>
+        <div fxFlex="5">
+        </div>
+    </div>
+    
+    <!-- PRODUCTO -->
+    <div *ngFor="let product of cartProducts">
+        <div style="background-color:white; padding:1.5rem 0 0 0;" fxLayout="row" fxLayoutGap="16px">
+            <div fxFlex="5">
+            </div>
+            <div class="alignFlex photoProduct" fxFlex="15" fxHide.xs>
+                <img src={{product.url_image}}>
+            </div>
+            <div class="alignFlex nameProduct" fxFlex="30" fxFlex.xs="50">
+                <a (click)="toProduct(product.product_id)"><span>{{product.title}}</span></a>
+            </div>
+            <div class="alignFlex" fxFlex="15" fxHide.xs>
+                <span>${{product.price}}</span>
+            </div>
+            <div fxLayout fxLayoutAlign="center center" class="alignFlex" fxFlex="15" fxFlex.xs="20">
+                <input inline=true type="number" id= "quantity" min="1" max="10" value={{product.quantity}} [ngModel]=product.quantity (ngModelChange)="valuechange($event, product.product_id)">
+                <mat-icon class="deleteButton" (click)="deleteFromCart(product.product_id)" inline=true mat-list-icon>delete</mat-icon>
+            </div>
+            <div fxLayout fxLayoutAlign="center center" class="alignFlex" fxFlex="15" fxFlex.xs="20">
+                <span inline=true>${{product.sub_total}}</span>
+            </div>
+            <div fxFlex="5">
+            </div>
+        </div>
+
+        <hr style="background-color:white; margin: 1rem 3rem; border-bottom: 1px solid #dddddd;">
+    </div>
+
+    <div style="margin-bottom: 2rem;" class="finalInfo">
+        <div class="subTotal">
+            <p>Subtotal &nbsp;&nbsp; ${{this.service.totalPrice}}</p>
+            <button (click)="toCheckout()" type="submit" block="true" class="btn btn-dark my-2">Checkout</button>
+        </div>
+    </div>
+</div>

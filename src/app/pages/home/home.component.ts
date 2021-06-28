@@ -18,10 +18,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  getCategoryId(id:string, name:string) {
+  getCategoryId(id:string) {
     this.service.category_id = id;
-    this.router.navigate([`/category/${id}`]).then(() => {
-      window.location.reload();
-    });
+    this.service.products = [];
+    this.router.navigate([`/category/${id}`]);
   }
 }

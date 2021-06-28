@@ -1,0 +1,74 @@
+h3 {
+    font-size: 14px;
+}
+
+.alignFlex {
+    text-align: center;
+    align-self: center;
+}
+
+.photoProduct {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.photoProduct img {
+    width: 95px;
+    height: 95px;
+}
+
+.nameProduct {
+    text-align: left !important;
+}
+
+.nameProduct a:hover{
+    cursor: pointer;
+}
+
+span {
+    font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    color: #3a3a3a;
+    font-size: 15px;
+}
+
+.nameProduct a:hover {
+    text-decoration: underline;
+    text-decoration-color: #3a3a3a;
+}
+
+.nameProduct a span {
+    font-size: 17px;
+}
+
+.finalInfo {
+    position: relative;
+    float: right;
+    margin-right: 11%;
+    background-color:white;
+}
+
+.subTotal {
+    text-align: right;
+}
+
+.subTotal p {
+    font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif;
+    color: #3a3a3a;
+    font-size: 17px;
+}
+
+.mat-list-icon {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.deleteButton {
+    font-size: 24px;
+    color: rgb(167, 0, 0);
+}
+
+.deleteButton:hover {
+    cursor: pointer;
+    opacity: .5;
+}
